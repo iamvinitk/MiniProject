@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% if laptops_list %}
+        {% for laptop in laptops_list %}
+            <a href = "{{ laptop.slug_name }}">
+            <div class="row">
+                <div class="col-3">
+                    <div class="col">
+                        <img class="embed-responsive"  alt="Mi A1  (Sale is on!)"
+                             src="https://rukminim1.flixcart.com/image/832/832/computer/k/3/y/lenovo-notebook-original-imaery672hsumujs.jpeg?q=70">
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="row">
+                        <div class="col">
+                            <div>{{ laptop.product_name }}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div>{{ laptop.hdd }}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div>{{ laptop.ram }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            </a>
+        {% endfor %}
+    {% endif %}
+
+{% endblock body %}
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
