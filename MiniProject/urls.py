@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import RedirectView
+from django.conf import settings
+import debug_toolbar
 
 urlpatterns = [
+    url(r'^debug/', include(debug_toolbar.urls)),
     url(r'^home/', include('kompany.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='home/')),

@@ -19,6 +19,7 @@ def home_page(request):
 
 def laptop_details(request, name):
     laptop_list = Laptops.objects.filter(slug_name=name)
+    print(Laptops.objects.filter(slug_name=name).query)
     html = ''
     if laptop_list.count() == 0:
         html = '<b><i>No Products Found!!</i></b>'

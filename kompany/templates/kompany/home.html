@@ -4,24 +4,27 @@
         {% for laptop in laptops_list %}
             <a href = "{{ laptop.slug_name }}">
             <div class="row">
-                <div class="col-3">
+                <div class="col-md-4">
                     <div class="col">
-                        <img class="embed-responsive"  alt="Mi A1  (Sale is on!)"
-                             src="https://rukminim1.flixcart.com/image/832/832/computer/k/3/y/lenovo-notebook-original-imaery672hsumujs.jpeg?q=70">
+                        <img class="img-thumbnail"  alt="Mi A1  (Sale is on!)"
+                             src="{{ laptop.image_src }}">
+                    </div>
+                    <div class="col">
+                       <span><br></span>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <div class="row">
+                <div class="col-md-8">
+                    <div class="row2">
                         <div class="col">
                             <div>{{ laptop.product_name }}</div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row2">
                         <div class="col">
                             <div>{{ laptop.hdd }}</div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row2">
                         <div class="col">
                             <div>{{ laptop.ram }}</div>
                         </div>

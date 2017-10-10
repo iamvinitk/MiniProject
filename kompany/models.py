@@ -1,6 +1,5 @@
 from django.template.defaultfilters import slugify
 from django.db import models
-
 # Create your models here.
 # Laptops, Mobiles, Cameras, HeadPhones, TVs
 
@@ -19,6 +18,7 @@ class Laptops(models.Model):
     display_size = models.CharField(max_length=250)
     warranty = models.CharField(max_length=1000)
     slug_name = models.SlugField(unique=True)
+    image_src = models.URLField(null=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.product_name)
