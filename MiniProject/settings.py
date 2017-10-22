@@ -26,10 +26,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-STATICDIRS = [os.path.join(BASE_DIR, 'kompany/static')]
+STATICDIRS = [os.path.join(BASE_DIR, 'static'),
+              os.path.join(BASE_DIR, 'user/static'),
+              os.path.join(BASE_DIR, 'kompany/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Application definition
-
+LOGIN_REDIRECT_URL = '/'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,13 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kompany.apps.KompanyConfig',
-    'debug_toolbar',
+    'user.apps.UserConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -58,7 +61,11 @@ ROOT_URLCONF = 'MiniProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'kompany/templates/kompany')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'kompany/templates/kompany'),
+                 os.path.join(BASE_DIR, 'user/templates/user'),
+
+                 ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {

@@ -11,6 +11,20 @@ body {
     font-family: 'Nosifer', cursive;
 }
 
-.name{
+.name {
     font-family: 'Nosifer', cursive;
+}
+#header{
+    overflow: hidden;
+    background-color: #880016;
+    height: 50px;
+    border-bottom: 4px solid black;
+    padding: 10px;
+    font-size: 20px;
+}
+.main-image{
+    height: auto;
+    width: 50%;
+    text-align: center;
+
 }

@@ -14,14 +14,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link href="{% static 'kompany/css/Style.css' %}" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'kompany/css/Style.css' %}" rel="stylesheet">
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #17a2b8">
     <a class="navbar-brand" href="#">Kompany</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,27 +42,30 @@
             </li>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
             </form>
         </ul>
     </div>
 </nav>
-
-<div class="container">
-
-    <div class="starter-template">
-        <h1 class="name">Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
-            mostly barebones HTML document.</p>
-    </div>
-
-</div>
 {% block body %}
+    <h1>Block body</h1>
 {% endblock %}
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
-<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="../../static/kompany/js/script.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("[id=product]").each(function () {
+            var width = $(this).prop('naturalWidth');
+            var height = $(this).prop('naturalHeight');
+            $(this).attr("height", height / 8);
+            $(this).attr("width", width / 8);
+        })
+
+    });
+
+</script>
 
 </body>
-
 </html>

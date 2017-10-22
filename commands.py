@@ -24,4 +24,8 @@ COMMIT;
 ==>> Create site Admin user
 ==> python manage.py createsuperuser
 
+from django.template.defaultfilters import slugify
+for obj in MyModel.objects.all():
+...     obj.slug = slugify(obj.title)
+...     obj.save()
 """

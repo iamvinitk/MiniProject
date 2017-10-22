@@ -1,0 +1,130 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+
+}
+
+h1 {
+    letter-spacing: 10px;
+    font-size: 35px;
+    color: #ffffff;
+    font-weight: bold;
+
+}
+
+h2 {
+    letter-spacing: 10px;
+    font-size: 35px;
+    color: #ffffff;
+    text-align: center;
+
+}
+
+p {
+    text-align: center;
+    font-size: 20px;
+
+    color: #222;
+}
+
+.container {
+    background-color: #fff;
+    max-width: 500px;
+    padding: 30px 30px 30px 30px;
+    border-radius: 20px 50px 20px 50px;
+    border: 4px solid #222;
+}
+
+.container h2 {
+    color: #222;
+    letter-spacing: 5px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container .btn {
+    color: #fff;
+}
+
+.head-part {
+    padding-left: 20px;
+
+}
+
+.head-part h1 {
+    color: #000;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.head-part h2 {
+    color: #000;
+    text-align: left;
+    padding-left: 0px;
+    font-size: 20px;
+}
+
+.head-part a {
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 1;
+
+}
+
+.head-part p {
+    text-align: right;
+    padding-right: 10px;
+
+}
+
+.container #sign-p {
+    font-size: 15px;
+}
+
+.sign-login-btn {
+    background-color: #111;
+    text-align: center;
+    color: #fff;
+    padding: 50px 80px;
+    height: 200px;
+}
+
+.w3-lobster {
+    font-family: "Lobster", serif;
+    font-size: 30px;
+}
+
+.w3-allerta {
+    font-family: "Allerta Stencil", Sans-serif;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    font-size: 17px;
+}
+
+.bgimg-1 {
+    position: relative;
+    opacity: 0.65;
+    background: url("../images/back-base.jpg") no-repeat fixed center;
+    background-size: cover;
+}
+
+.rest-select {
+    margin-left: 130px;
+    background-color: #fff;
+    max-width: 80%;
+    height: 600px;
+    padding: 30px 30px 30px 30px;
+    border-radius: 20px 20px 20px 20px;
+    border: 2px solid #222;
+}
+
+.rest-select p {
+    font-size: 30px;
+    font-weight: bold;
+
+}

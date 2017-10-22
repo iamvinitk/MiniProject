@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kompany</title>
+    {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'user/css/style1.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+
+
+</head>
+<body>
+
+<div class="head-part">
+    <header>
+        <h1>-Kompany-</h1>
+        {% if user.is_authenticated %}
+            <h2>Welcome, {{ user.get_full_name }}</h2>
+            <p><span class="glyphicon glyphicon-log-out"></span>&nbsp;<a href="{% url 'user:logout' %}">logout</a></p>
+        {% else %}
+            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<a href="{% url 'user:login' %}">login</a> / <a
+                    href="#">signup</a></p>
+        {% endif %}
+
+
+    </header>
+</div>
+<br>
+<div class="bgimg-1">
+    <br><br><br>
+    <main>
+
+      <div class="container">
+
+        <h2>Login</h2><br>
+
+        {% if form.errors %}
+            <p style="color: red">Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"/>
+                            {% for field in form %}
+
+                <p>
+                    {{ field.label_tag }}&nbsp;{{ field }}<br>
+                    {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </p>
+                <br>
+            {% endfor %}<br>
+            <center>
+                <button type="submit" class="btn btn-success btn-lg">Log in</button>
+                <br><br>
+                <a href="{% url 'user:signup' %}">New to My Site? Sign up</a>
+            </center>
+        </form>
+
+    </div><br><br><br>
+    <div class="sign-login-btn">
+        <div class="w3-container w3-lobster">
+            <p class="w3-xxxlarge" style="color: #fff;"><a href="#">Connect with us!</a></p>
+        </div>
+    </div>
+    <footer>site design/logo &copy; 2017 STARV Inc.</footer>
+
+    </main>
+</div>
+</body>
+</html>

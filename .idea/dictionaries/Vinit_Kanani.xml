@@ -6,6 +6,7 @@
       <w>cdnjs</w>
       <w>cloudflare</w>
       <w>getbootstrap</w>
+      <w>glyphicon</w>
       <w>googleapis</w>
       <w>kompany</w>
       <w>makemigrations</w>
@@ -15,6 +16,7 @@
       <w>sqlmigrate</w>
       <w>staticdirs</w>
       <w>toggler</w>
+      <w>vcenter</w>
     </words>
   </dictionary>
 </component>

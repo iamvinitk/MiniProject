@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kompany</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/kompany/css/base.css">
+</head>
+<body>
+{% load static %}
+<!-- Nav Bar -->
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Kompany</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li><h4>{{ user.get_full_name }}</h4></li>
+                    <li><a href="{% url 'user:logout' %}"><span class="glyphicon glyphicon-log-out"></span>
+                        Logout</a></li>
+                    <li><a href="#">
+                        <button class="btn btn-lg" style="background-color: #0099FF">
+                            <span class="glyphicon glyphicon-shopping-cart ">  </span>CART<span class="badge">3</span>
+                        </button>
+                    </a></li>
+                {% else %}
+                    <li><a href="{% url 'user:signup' %} "><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    </li>
+                    <li><a href="{% url 'user:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Nav Bar End -->
+<!--Slide Show -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                {#                <ol class="carousel-indicators">#}
+                {#                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>#}
+                {#                    <li data-target="#myCarousel" data-slide-to="1"></li>#}
+                {#                    <li data-target="#myCarousel" data-slide-to="2"></li>#}
+                {#                </ol>#}
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="cell">
+                    <div class="item active">
+                        <img src="../../static/kompany/mobiles/promo.jpg" id="slide-image">
+                    </div>
+
+                    <div class="item">
+                        <img src="../../static/kompany/mobiles/promo2.jpg" id="slide-image">
+                    </div>
+
+                    <div class="item">
+                        <img src="../../static/kompany/mobiles/promo3.jpg" id="slide-image">
+                    </div>
+
+                    <div class="item">
+                        <img src="../../static/kompany/mobiles/promo4.jpg" id="slide-image">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev" role="button">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next" role="button">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Slide Show End-->
+<!--Product Slidebar-->
+{% if types %}
+    {% for type in types %}
+        <div class="container-fluid thumbnail" id="custom-container">
+            <div class="row" style="height: 100%">
+                <div class="col-md-2 col-sm-3 vcenter">
+                    <h2>{{ type }}</h2>
+                    <span><br></span>
+                    <a href="{{ type }}">
+                        <button type="button" class="btn btn-primary">View All</button>
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        {% if laptops_list %}
+                            {% for laptop in laptops_list %}
+                                {% if laptop.type == type %}
+                                    <div class="col-sm-3" style="text-align: center;">
+                                        <div class="box laptop">
+                                            <img id="product"
+                                                 src="{{ laptop.slug_name }}"
+                                                 alt="{{ laptop.slug_name }}">
+                                        </div>
+                                        <br> <br>
+
+                                        <div class="box">
+                                            <a href="{{ type }}"
+                                               class="btn btn-success btn-sm">{{ laptop.product_name }}</a>
+                                            <br>
+                                        </div>
+                                        <br><br><br>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if mobile_list %}
+                            {% for mobile in mobile_list %}
+                                {% if mobile.type == type %}
+                                    <div class="col-sm-3" style="text-align: center;">
+                                        <div class="box mobile">
+                                            <img id="product"
+                                                 src="{{ mobile.slug_name }}"
+                                                 alt="{{ mobile.slug_name }}">
+                                        </div>
+                                        <br>
+                                        <div class="box">
+                                            <a href="{{ type }}"
+                                               class="btn btn-primary btn-sm">{{ mobile.product_name }}</a>
+                                            <br> <br>
+
+                                        </div>
+                                        <br><br><br>
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endif %}
+
+
+<!--Product Slidebar End-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("nav a").attr("style", "color: #ffffff;");
+    });
+    $(document).ready(function () {
+        $("nav a").hover(
+            function () {
+                $(this).attr("style", "color: #FFFF00; background-color: #0099FF;");
+            }, function () {
+                $(this).attr("style", "background-color: #0099FF; color: #ffffff;");
+            }
+        )
+    });
+
+    $(".carousel").carousel({
+        interval: 2000
+    });
+    $(document).ready(function () {
+
+        $("[id=product]").each(function () {
+            var width = $(this).prop('naturalWidth');
+            var height = $(this).prop('naturalHeight');
+            $(this).attr("height", height / 12);
+            $(this).attr("width", width / 12);
+            $(this).css("padding", "10px");
+
+        }).hover(
+            function () {
+                $(this).css("transform", "scale(1.1, 1.1)");
+
+            }, function () {
+                $(this).css("transform", "scale(1, 1)")
+            }
+        )
+
+    });
+
+</script>
+</body>
+</html>
+{#<div class="container-fluid thumbnail" id="custom-container">#}
+{#    <div class="row" style="height: 100%">#}
+{#        <div class="col-md-2 vcenter">#}
+{#            <h2>Headphones & Speakers</h2>#}
+{#            <span><br></span>#}
+{#            <button type="button" class="btn btn-primary">View All</button>#}
+{#        </div>#}
+{#        <div class="col-md-10">#}
+{#            <div class="row">#}
+{#                {% if laptops_list %}#}
+{#                    {% for laptop in laptops_list %}#}
+{#                        <div class="col-sm-3" style="text-align: center;">#}
+{#                            <div style="height: 250px; width:200px;">#}
+{#                                <img id="product"#}
+{#                                     src="{{ laptop.slug_name }}"#}
+{#                                     alt="{{ laptop.slug_name }}">#}
+{#                            </div>#}
+{#                            <br>#}
+{#                            <div style="height: 50px; width:200px;">#}
+{#                                <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                                <br>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="container-fluid thumbnail" id="custom-container">#}
+{#    <div class="row" style="height: 100%">#}
+{#        <div class="col-md-2 vcenter">#}
+{#            <h2>Headphones & Speakers</h2>#}
+{#            <span><br></span>#}
+{#            <button type="button" class="btn btn-primary">View All</button>#}
+{#        </div>#}
+{#        <div class="col-md-10">#}
+{#            <div class="row">#}
+{#                {% if laptops_list %}#}
+{#                    {% for laptop in laptops_list %}#}
+{#                        <div class="col-sm-3" style="text-align: center;">#}
+{#                            <div style="height: 250px; width:200px;">#}
+{#                                <img id="product"#}
+{#                                     src="{{ laptop.slug_name }}"#}
+{#                                     alt="{{ laptop.slug_name }}">#}
+{#                            </div>#}
+{#                            <br>#}
+{#                            <div style="height: 50px; width:200px;">#}
+{#                                <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                                <br>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="container-fluid thumbnail" id="custom-container">#}
+{#    <div class="row" style="height: 100%">#}
+{#        <div class="col-md-2 vcenter">#}
+{#            <h2>Headphones & Speakers</h2>#}
+{#            <span><br></span>#}
+{#            <button type="button" class="btn btn-primary">View All</button>#}
+{#        </div>#}
+{#        <div class="col-md-10">#}
+{#            <div class="row">#}
+{#                {% if laptops_list %}#}
+{#                    {% for laptop in laptops_list %}#}
+{#                        <div class="col-sm-3" style="text-align: center;">#}
+{#                            <div style="height: 250px; width:200px;">#}
+{#                                <img id="product"#}
+{#                                     src="{{ laptop.slug_name }}"#}
+{#                                     alt="{{ laptop.slug_name }}">#}
+{#                            </div>#}
+{#                            <br>#}
+{#                            <div style="height: 50px; width:200px;">#}
+{#                                <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                                <br>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% endfor %}#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="container-fluid thumbnail" id="custom-container">#}
+{#    <div class="row" style="height: 100%">#}
+{#        <div class="col-md-2 vcenter">#}
+{#            <h2>Headphones & Speakers</h2>#}
+{#            <span><br></span>#}
+{#            <button type="button" class="btn btn-primary">View All</button>#}
+{#        </div>#}
+{#        <div class="col-md-10">#}
+{#            <div class="row">#}
+{#                <div class="col-sm-3" style="text-align: center;">#}
+{#                    <div style="height: 250px; width:200px;">#}
+{#                        <img id="product"#}
+{#                             src="../../static/kompany/mobiles/Apple%20iPhone%20SE%20(Space%20Grey,%2032%20GB)-0.jpeg">#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <div style="height: 50px; width:200px;">#}
+{#                        <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                        <br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-3" style="text-align: center;">#}
+{#                    <div style="height: 250px; width:200px;">#}
+{#                        <img id="product"#}
+{#                             src="../../static/kompany/mobiles/Apple%20iPhone%20SE%20(Space%20Grey,%2032%20GB)-1.jpeg">#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <div style="height: 50px; width:200px;">#}
+{#                        <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                        <br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-3" style="text-align: center;">#}
+{#                    <div style="height: 250px; width:200px;">#}
+{#                        <img id="product"#}
+{#                             src="../../static/kompany/mobiles/Apple%20iPhone%20SE%20(Space%20Grey,%2032%20GB)-2.jpeg">#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <div style="height: 50px; width:200px;">#}
+{#                        <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                        <br>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-sm-3" style="text-align: center;">#}
+{#                    <div style="height: 250px; width:200px;">#}
+{#                        <img id="product"#}
+{#                             src="../../static/kompany/mobiles/Asus%20Zenfone%203s%20Max%20(Gold,%2032%20GB)-3.jpeg">#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <div style="height: 50px; width:200px;">#}
+{#                        <a href="#" class="btn btn-success btn-sm">{{ laptop.product_name }}</a>#}
+{#                        <br>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}

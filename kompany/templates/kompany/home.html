@@ -1,43 +1,45 @@
-{% extends 'base.html' %}
+{% extends 'basepage.html' %}
 {% block body %}
-    {% if laptops_list %}
-        {% for laptop in laptops_list %}
-            <a href = "{{ laptop.slug_name }}">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="col">
-                        <img class="img-thumbnail"  alt="Mi A1  (Sale is on!)"
-                             src="{{ laptop.image_src }}">
+    <div class="container">
+    {% if product_list %}
+        {% for product in product_list %}
+            <div class="container-fluid thumbnail">
+            <a href="{{ product.slug_name }}">
+                <div class="row" style="text-align: center">
+                    <div class="col-md-4" style="text-align: center;  border-right: 1px solid #333;
+">
+                        <div style="text-align: center; margin-left: 10%; margin-right: 10%; height: inherit">
+                            <img id="product" src="{{ product.slug_name }}" class="img-responsive">
+                            <span><br></span>
+                        </div>
                     </div>
-                    <div class="col">
-                       <span><br></span>
+                    <div class="col-md-4" style="text-align: left">
+                        <div><h2>{{ product.product_name }}</h2></div>
+                        <div>
+                            <ul class="vFw0gD" data-reactid="437">
+                                <li class="tVe95H" data-reactid="438">Intel Core i5 Processor (5th Gen)</li>
+                                <li class="tVe95H" data-reactid="439">8 GB DDR3 RAM</li>
+                                <li class="tVe95H" data-reactid="440">64 bit Mac OS Operating System</li>
+                                <li class="tVe95H" data-reactid="441">128 GB SSD</li>
+                                <li class="tVe95H" data-reactid="442">13.3 inch Display</li>
+                                <li class="tVe95H" data-reactid="443">1 Year Onsite Warranty</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="font-weight-bold" data-reactid="447"><h3>{{ product.price }}</h3></div>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div class="row2">
-                        <div class="col">
-                            <div>{{ laptop.product_name }}</div>
-                        </div>
-                    </div>
-                    <div class="row2">
-                        <div class="col">
-                            <div>{{ laptop.hdd }}</div>
-                        </div>
-                    </div>
-                    <div class="row2">
-                        <div class="col">
-                            <div>{{ laptop.ram }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
+                <br><br>
             </a>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+<hr style="height:1px;border:none;color:#b0bbbb;background-color:#b0bbbb;" />
+            </div>
+            </div>
         {% endfor %}
     {% endif %}
-
-{% endblock body %}
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+</div>
+{% endblock %}

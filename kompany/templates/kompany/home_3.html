@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kompany</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/kompany/css/custom.css">
+</head>
+<body>
+<div class="container-fluid thumbnail">
+    <div class="row" s="max-height: 100px !important;">
+        <div class="col-sm-3 defg">
+            <h3>Laptops</h3>
+            <button class="btn btn-default">View All Products</button>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="https://placeholder.com"><img
+                            src="../../static/kompany/mobiles/Apple%20iPhone%20SE%20(Space%20Grey,%2032%20GB)-0.jpeg"
+                            class="img-responsive"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="https://placeholder.com"><img class="img-responsive"
+                                                           src="../../static/kompany/mobiles/Asus%20Zenfone%203s%20Max%20(Gold,%2032%20GB)-0.jpeg"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="https://placeholder.com"><img
+                            src="../../static/kompany/mobiles/Lenovo%20Phab%202%20(Gunmetal%20Gray,%2032%20GB)-0.jpeg"
+                            class="img-responsive"></a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="https://placeholder.com"><img
+                            src="../../static/kompany/mobiles/Asus%20APU%20Quad%20Core%20A8%207th%20Gen%20-%20(4%20GB1%20TB%20HDDDOS)%20X540YA-XO106%20Laptop-1.jpeg"
+                            class="img-responsive"></a>
+                </div>
+
+            </div>
+            <div class="row abcd">
+                <div class="col-sm-3">
+                    <h3>29,999</h3>
+                </div>
+                <div class="col-sm-3">
+                    <h3>29,999</h3>
+                </div>
+                <div class="col-sm-3">
+                    <h3>29,999</h3>
+                </div>
+                <div class="col-sm-3">
+                    <h3>29,999</h3>
+                    <h4>Buy now!!</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>$(document).ready(function () {
+    $("[class=img-responsive]").each(function () {
+        var width = $(this).prop('naturalWidth');
+        var height = $(this).prop('naturalHeight');
+        $(this).attr("height", height / 8);
+        $(this).attr("width", width / 8);
+        $(this).css("padding", "10px");
+
+    }).hover(
+        function () {
+            $(this).css("transform", "scale(1.1, 1.1)");
+        }, function () {
+            $(this).css("transform", "scale(1, 1)")
+        }
+    )
+
+});</script>
+</body>
+</html>

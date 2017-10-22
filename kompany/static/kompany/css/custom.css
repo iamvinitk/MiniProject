@@ -1,0 +1,13 @@
+.abcd{
+    text-align: center;
+}
+.defg{
+    padding-top: 40px;
+    text-align: center;
+}
+div.container-fluid{
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 15px;
+}
