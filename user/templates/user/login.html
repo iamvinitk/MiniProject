@@ -20,8 +20,8 @@
             <h2>Welcome, {{ user.get_full_name }}</h2>
             <p><span class="glyphicon glyphicon-log-out"></span>&nbsp;<a href="{% url 'user:logout' %}">logout</a></p>
         {% else %}
-            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<a href="{% url 'user:login' %}">login</a> / <a
-                    href="#">signup</a></p>
+            <p><span class="glyphicon glyphicon-user"></span>&nbsp;<a href="{% url 'user:login' %}">login</a><h4>/</h4><a
+                    href="{% url 'user:signup' %}">signup</a></p>
         {% endif %}
 
 

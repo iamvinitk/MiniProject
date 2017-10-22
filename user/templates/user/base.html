@@ -23,7 +23,7 @@
             <p><span class="glyphicon glyphicon-log-out"></span>&nbsp;<a href="{% url 'user:logout' %}">logout</a></p>
         {% else %}
             <p><span class="glyphicon glyphicon-user"></span>&nbsp;<a href="{% url 'user:login' %}">login</a> / <a
-                    href="#">signup</a></p>
+                    href="{% url 'user:signup' %}">signup</a></p>
         {% endif %}
 
 
